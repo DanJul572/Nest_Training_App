@@ -39,7 +39,6 @@ export default [
 
             parserOptions: {
                 project: 'tsconfig.json',
-                tsconfigRootDir: 'D:\\Dandi\\Coding\\ZApp\\zapp',
             },
         },
 
