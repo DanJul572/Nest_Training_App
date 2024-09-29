@@ -1,7 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBase64, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+    IsBase64,
+    IsNotEmpty,
+    IsNumber,
+    IsOptional,
+    IsString,
+} from 'class-validator';
+import { Prisma } from '@prisma/client'; // Import Prisma types
 
-export class CreateProductDto {
+export class CreateProductDto implements Prisma.ProductCreateInput {
+    // Use Prisma's input type
     @ApiProperty()
     @IsNotEmpty()
     @IsString()
@@ -9,7 +17,8 @@ export class CreateProductDto {
 
     @ApiProperty()
     @IsBase64()
-    image: string;
+    @IsOptional()
+    image?: Buffer;
 
     @ApiProperty()
     @IsNotEmpty()
